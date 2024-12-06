@@ -1,0 +1,5 @@
+<p class="single-revision">
+    revision: {{ .Lastmod.Format "January 2, 2006" }}
+    <!-- https://github.com/eBerdnA/blogdata/commits/3c3267/2024/08/05/1/post.md -->
+    {{ if .IsPage }}<em>{{ with .GitInfo }}| {{ .Subject }} | {{ .AbbreviatedHash }}{{end }} - <a href="{{ .Site.Params.repo.url }}/content/{{ .File.Path }}">{{ .File.Path }}</a></em>{{ end }}
+</p>

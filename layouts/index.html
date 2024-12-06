@@ -1,10 +1,17 @@
 {{ define "main" }}
 	<main>
-		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-		{{ range $paginator.Pages }}
-			{{ .Render "summary" }}
+		{{ readFile "/data/intro.md" | markdownify }}
+		{{ range (where .Site.RegularPages "Type" "in" (slice "posts")).GroupByDate "2006" }}
+		<h2>{{ .Key }}</h2>
+		<ul class="posts">
+		{{ range .Pages }}
+		<li>
+			<a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+			<hr>
+			<time datetime>{{ .Date.Format "2006-01-02" }}</span>
+		</li>
+		{{- end -}}
+		</ul>
 		{{ end }}
-		{{ partial "pagination.html" . }}
 	</main>
-{{ partial "sidebar.html" . }}
 {{ end }}
