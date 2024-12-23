@@ -39,11 +39,8 @@ a {
     color: var(--color-link);
 }
 
-::selection,
 a:focus,
 a:hover {
-    /* background-color: #353535; */
-    /* color: #fff; */
     color: var(--color-link-hover);
 }
 .meta {
