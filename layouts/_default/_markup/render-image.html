@@ -1,0 +1,27 @@
+{{ $url := urls.Parse .Destination }}
+
+<!-- Output clean image destination url without the ?query params -->
+{{ $cleanURL := .Destination | strings.TrimSuffix (print "?" $url.RawQuery) }}
+
+{{- $width := 0 }}
+{{- $height := 0 }}
+
+{{- $u := urls.Parse .Destination }}
+{{- with $u.Query }}
+    {{- with .Get "w" }}
+        {{- $width = int . }}
+    {{- end }}
+    {{- with .Get "h" }}
+        {{- $height = int . }}
+    {{- end }}
+{{- end }}
+
+<img 
+    src="{{$cleanURL}}" 
+    {{- if gt $width 0}}
+        width="{{$width}}"
+    {{- end }}
+    {{- if gt $height 0}}
+        height="{{$height}}"
+    {{- end }}
+>
