@@ -381,3 +381,32 @@ a.card-link {
 .non-flex-hidden {
     visibility: hidden;
 }
+
+.footer-link {
+    display: inline;
+    height: 1.8em;
+    width: 1.8em;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.footer-link-rss {
+    background-image: url('/svg/rss.svg');
+}
+
+.footer-link-github {
+    background-image: url('/svg/github.svg');
+}
+
+.footer-link-mastodon {
+    background-image: url('/svg/mastodon.svg');
+}
+
+.footer-link-linkedin {
+    background-image: url('/svg/linkedin.svg');
+}
+
+article img {
+    margin-left: 0;
+    margin-right: 0;
+}
